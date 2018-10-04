@@ -1,9 +1,9 @@
 # PHPProjectGen
 
 #### Objective
-Create a package to generate skeleton for package 
+Create a package to generate php skeleton for package (composer) 
 
-####Usage:
+#### Usage:
 After download run 
 ```php
 composer install
@@ -23,12 +23,11 @@ Configure your package (config.json)
 }
 ```
 
-Execute 
+#### Execute 
 ```php
 php generate.php
 ```
-
-This will generate this structure
+this will generate a zip file (projectname.zip) with this structure and the correct namespace
 
 ```
 src/NewProject.php
@@ -36,3 +35,9 @@ tests/testNewProject.php
 composer.json
 README.md
 ```
+After unzip the file you have to run 
+```php
+composer install
+```
+and you will have your project up and running in 5 minutes or less.
+

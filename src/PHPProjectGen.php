@@ -80,7 +80,7 @@ class PHPProjectGen
 
     private function generateClass()
     {
-        $string = file_get_contents("src/ProjectTemplate.php");
+        $string = file_get_contents("src/ProjectTemplate.php.raw");
         $name = $this->composer_config['name'] . '\\' . $this->composer_config['projectname'];
         $string = str_replace('{!namespace!}', $name, $string);
         $string = str_replace('{!class!}', $this->composer_config['projectname'], $string);
@@ -92,7 +92,7 @@ class PHPProjectGen
 
     private function generateTestCases()
     {
-        $string = file_get_contents("src/testProjectTemplate.php");
+        $string = file_get_contents("src/testProjectTemplate.php.raw");
         $name = $this->composer_config['name'] . '\\' . $this->composer_config['projectname'];
         $string = str_replace('{!namespace!}', $name, $string);
         $string = str_replace('{!projectname!}', $this->composer_config['projectname'], $string);
