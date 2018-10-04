@@ -14,6 +14,7 @@
 //@todo Create composer.json file
 //@todo Create Test Cases class
 //@todo Create Readme.md file
+//@todo Zip content
 
 namespace Elminson\PHPProjectGen;
 
