@@ -1,0 +1,11 @@
+{
+  "name": "Elminson",
+  "projectname": "NewProject",
+  "description": "Set all necessary components to create a skeleton project in php",
+  "phpunit": true,
+  "developer": "Elminson De Oleo Baez",
+  "email": "edeoleo@gmail.com",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "type": "project"
+}
