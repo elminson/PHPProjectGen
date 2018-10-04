@@ -2,3 +2,6 @@
 *.xml
 *.zip
 vendor/
+.DS_Store
+.DS_Store?
+
