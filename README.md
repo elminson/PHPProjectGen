@@ -1,2 +1,2 @@
-# PHPProjectPrep
+#PHPProjectGen
 

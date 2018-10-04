@@ -2,8 +2,52 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/doctrine/instantiator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/myclabs/deep-copy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phar-io/manifest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpspec/prophecy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpunit/php-code-coverage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpunit/php-file-iterator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpunit/php-timer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpunit/php-token-stream" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/phpunit/phpunit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/code-unit-reverse-lookup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/comparator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/diff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/environment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/exporter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/global-state" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/object-enumerator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/object-reflector" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/recursion-context" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/sebastian/resource-operations" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive 3/vendor/webmozart/assert" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/doctrine/instantiator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/myclabs/deep-copy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phar-io/manifest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpspec/prophecy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpunit/php-code-coverage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpunit/php-file-iterator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpunit/php-timer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpunit/php-token-stream" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/phpunit/phpunit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/code-unit-reverse-lookup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/comparator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/diff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/environment" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/exporter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/global-state" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/object-enumerator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/object-reflector" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/recursion-context" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/sebastian/resource-operations" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NewProject_archive/vendor/webmozart/assert" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/alchemy/zippy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/doctrine/collections" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/doctrine/instantiator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/myclabs/deep-copy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/nelexa/zip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/pclzip/pclzip" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/phar-io/manifest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/phpspec/prophecy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" vcs="Git" />
@@ -11,6 +55,7 @@
     <mapping directory="$PROJECT_DIR$/vendor/phpunit/php-timer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/phpunit/php-token-stream" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/phpunit/phpunit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/psr/http-message" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/comparator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/diff" vcs="Git" />
@@ -21,6 +66,10 @@
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/object-reflector" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/recursion-context" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/sebastian/resource-operations" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/filesystem" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/symfony/process" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/webmozart/assert" vcs="Git" />
   </component>
 </project>

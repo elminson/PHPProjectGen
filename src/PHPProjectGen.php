@@ -8,6 +8,9 @@
 
 namespace Elminson\PHPProjectGen;
 
+use Alchemy\Zippy\Zippy;
+use PclZip;
+
 class PHPProjectGen
 {
     private $composer_config;
@@ -29,6 +32,8 @@ class PHPProjectGen
         $this->generateComposer();
         $this->generateClass();
         $this->generateTestCases();
+        $this->generateZipFile();
+        $this->cleanData();
     }
 
     private function getConfig()
@@ -54,8 +59,8 @@ class PHPProjectGen
         $composer_data['license'] = $this->composer_config['license'];
         $composer_data['authors'][0]['name'] = $this->composer_config['developer'];
         $composer_data['authors'][0]['email'] = $this->composer_config['email'];
-        $src = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname'];
-        $tests = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname'] . "\\\\Test";
+        $src = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname']."\\\\";
+        $tests = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname'] . "\\\\Test\\\\";
         $composer_data['autoload']['psr-0'] = [
           $src => "src/",
           $tests => "tests/"
@@ -101,6 +106,25 @@ class PHPProjectGen
         $fp = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
         fwrite($fp, $data);
         fclose($fp);
+    }
+
+    private function generateZipFile()
+    {
+        $zipFile = new \PhpZip\ZipFile();
+        $zipFile
+          ->addFile(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php", "src/" . $this->composer_config['projectname'] . ".php")
+          ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", "tests/test" . $this->composer_config['projectname'] . ".php")
+          ->addFile(__DIR__ . "/temp/composer.json", "composer.json")
+          ->addFile(__DIR__ . "/temp/.gitignore", ".gitignore")
+          ->addFromString("README.md", "#" . $this->composer_config['projectname'])
+          ->saveAsFile($this->composer_config['projectname'].'.zip')
+          ->close();
+    }
+
+    private function cleanData(){
+        unlink(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php");
+        unlink(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php");
+        unlink(__DIR__ . "/temp/composer.json");
     }
 
 }

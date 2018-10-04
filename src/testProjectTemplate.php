@@ -5,10 +5,10 @@
  * Date: 10/3/18
  * Time: 1:52 PM
  */
+namespace {!namespace!};
+
 require __DIR__ . '/../vendor/autoload.php';
 
-
-use {!namespace!};
 use PHPUnit\Framework\TestCase;
 
 class test{!projectname!} extends TestCase
@@ -20,7 +20,7 @@ class test{!projectname!} extends TestCase
     function testFirstTestCase()
     {
         ${!loweclass!} = new {!projectname!}();
-        $this->assertEquals("index", ${!loweclass!}->index);
+        $this->assertEquals("index", ${!loweclass!}->index());
     }
 
 }

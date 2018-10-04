@@ -3,7 +3,8 @@
   "description": "Set all necessary components to create a skeleton project in php",
   "type": "project",
   "require": {
-    "phpunit/phpunit": "^7.4@dev"
+    "phpunit/phpunit": "^7.4@dev",
+    "nelexa/zip": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.4@dev"
