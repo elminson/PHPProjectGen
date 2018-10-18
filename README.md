@@ -1,7 +1,7 @@
 # PHPProjectGen
 Packagist <br>
-[![Packagist](https://img.shields.io/packagist/v/elminson/PHPProjectGen.svg)](https://packagist.org/packages/rap2hpoutre/laravel-log-viewer)
-[![Packagist](https://img.shields.io/packagist/l/elminson/PHPProjectGenr.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
+[![Packagist](https://img.shields.io/packagist/v/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen)
+[![Packagist](https://img.shields.io/packagist/l/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
 [![Packagist](https://img.shields.io/packagist/dm/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
 
 Codacy<br>
