@@ -37,7 +37,7 @@ php generate.php
 ```
 this will generate a zip file (projectname.zip) with this structure and the correct namespace
 
-```
+```php
 src/NewProject.php
 tests/testNewProject.php
 composer.json
