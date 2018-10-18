@@ -1,4 +1,10 @@
 # PHPProjectGen
+Scrutinizer <br>
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/build.png?b=master)](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+Travis <br>
 [![Build Status](https://travis-ci.org/elminson/PHPProjectGen.svg?branch=master)](https://travis-ci.org/elminson/PHPProjectGen)
 
 #### Objective
