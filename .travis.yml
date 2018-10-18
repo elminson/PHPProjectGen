@@ -8,5 +8,4 @@ before_script:
   - composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit 
   - vendor/phpunit/phpunit/phpunit --no-configuration tests
