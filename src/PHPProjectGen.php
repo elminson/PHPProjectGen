@@ -8,7 +8,12 @@
 
 namespace Elminson\PHPProjectGen;
 
+/** @scrutinizer ignore-type */
+
 use Alchemy\Zippy\Zippy;
+
+/** @scrutinizer ignore-type */
+
 use PclZip;
 
 class PHPProjectGen
@@ -112,25 +117,28 @@ class PHPProjectGen
 
     private function writeFile($name, $data, $prefix = "", $ext = "php")
     {
-        $fp = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
-        fwrite($fp, $data);
-        fclose($fp);
+        $file = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
+        fwrite(/** @scrutinizer ignore-type */
+          $file, $data);
+        fclose(/** @scrutinizer ignore-type */
+          $file);
     }
 
     private function generateZipFile()
     {
         $zipFile = new \PhpZip\ZipFile();
+        $mainFile = "src/" . $this->composer_config['projectname'] . ".php";
         $zipFile
-          ->addFile(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php", "src/" . $this->composer_config['projectname'] . ".php")
+          ->addFile(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php", $mainFile)
           ->addFile(__DIR__ . "/temp/composer.json", "composer.json")
           ->addFile(__DIR__ . "/temp/.gitignore", ".gitignore")
           ->addFromString("README.md", "#" . $this->composer_config['projectname']);
 
         if ($this->composer_config['phpunit']) {
+            $testFile = "tests/test" . $this->composer_config['projectname'] . ".php";
             $zipFile
-              ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php",
-                "tests/test" . $this->composer_config['projectname'] . ".php")
               ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "test/phpunit.xml.dist");
+              ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", $testFile);
         }
 
         $zipFile

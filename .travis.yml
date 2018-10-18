@@ -1,0 +1,9 @@
+language: php
+php:
+- '7.2.10'
+before_script:
+  - composer self-update
+  - composer install --no-interaction
+
+script:
+  - vendor/phpunit/phpunit/phpunit --no-configuration tests
