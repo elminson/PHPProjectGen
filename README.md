@@ -4,7 +4,6 @@ Packagist <br>
 [![Packagist](https://img.shields.io/packagist/l/elminson/PHPProjectGenr.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
 [![Packagist](https://img.shields.io/packagist/dm/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
 
-
 Codacy<br>
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b2b0c7845281438bafdfce10445a7da5)](https://app.codacy.com/app/elminson/PHPProjectGen?utm_source=github.com&utm_medium=referral&utm_content=elminson/PHPProjectGen&utm_campaign=Badge_Grade_Dashboard)
 
