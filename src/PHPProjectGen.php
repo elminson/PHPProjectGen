@@ -8,8 +8,8 @@
 
 namespace Elminson\PHPProjectGen;
 
-use Alchemy\Zippy\Zippy;
-use PclZip;
+/** @scrutinizer ignore-type */ use Alchemy\Zippy\Zippy;
+/** @scrutinizer ignore-type */ use PclZip;
 
 class PHPProjectGen
 {
