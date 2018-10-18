@@ -137,7 +137,7 @@ class PHPProjectGen
         if ($this->composer_config['phpunit']) {
             $testFile = "tests/test" . $this->composer_config['projectname'] . ".php";
             $zipFile
-              ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "test/phpunit.xml.dist");
+              ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "test/phpunit.xml.dist")
               ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", $testFile);
         }
 
