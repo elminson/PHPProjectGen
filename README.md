@@ -48,4 +48,3 @@ After unzip the file you have to run
 composer install
 ```
 and you will have your project up and running in 5 minutes or less.
-

@@ -108,11 +108,11 @@ class PHPProjectGen
 
     private function writeFile($name, $data, $prefix = "", $ext = "php")
     {
-        $fp = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
+        $file = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
         fwrite(/** @scrutinizer ignore-type */
-          $fp, $data);
+          $file, $data);
         fclose(/** @scrutinizer ignore-type */
-          $fp);
+          $file);
     }
 
     private function generateZipFile()
