@@ -37,6 +37,7 @@ class PHPProjectGen
         $this->generateComposer();
         $this->generateClass();
         $this->generateTestCases();
+        $this->generatePHPUnitTestCases();
         $this->generateZipFile();
         $this->cleanData();
     }
@@ -106,6 +107,14 @@ class PHPProjectGen
 
     }
 
+    private function generatePHPUnitTestCases()
+    {
+        $string = file_get_contents("src/phpunit.xml.dist.raw");
+        $string = str_replace('{!projectname!}', $this->composer_config['projectname'], $string);
+        $this->writeFile('phpunit.xml', $string, '', 'dist');
+
+    }
+
     private function writeFile($name, $data, $prefix = "", $ext = "php")
     {
         $file = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
@@ -128,6 +137,7 @@ class PHPProjectGen
         if ($this->composer_config['phpunit']) {
             $testFile = "tests/test" . $this->composer_config['projectname'] . ".php";
             $zipFile
+              ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "test/phpunit.xml.dist")
               ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", $testFile);
         }
 
@@ -142,6 +152,7 @@ class PHPProjectGen
         unlink(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php");
         if ($this->composer_config['phpunit']) {
             unlink(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php");
+            unlink(__DIR__ . "/temp/phpunit.xml.dist");
         }
         unlink(__DIR__ . "/temp/composer.json");
     }

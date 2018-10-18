@@ -1,0 +1,9 @@
+<phpunit bootstrap="src/autoload.php">
+  <testsuites>
+    <testsuite name="{!projectname!}">
+      <file>tests/test{!projectname!}.php</file>
+      <directory>tests/*Test.php</directory>
+      <exclude></exclude>
+    </testsuite>
+  </testsuites>
+</phpunit>
