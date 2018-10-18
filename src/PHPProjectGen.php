@@ -104,8 +104,8 @@ class PHPProjectGen
     private function writeFile($name, $data, $prefix = "", $ext = "php")
     {
         $fp = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
-        fwrite($fp, $data);
-        fclose($fp);
+        fwrite(/** @scrutinizer ignore-type */ $fp, $data);
+        fclose(/** @scrutinizer ignore-type */ $fp);
     }
 
     private function generateZipFile()
