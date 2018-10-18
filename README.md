@@ -8,10 +8,10 @@ Scrutinizer <br>
 Travis <br>
 [![Build Status](https://travis-ci.org/elminson/PHPProjectGen.svg?branch=master)](https://travis-ci.org/elminson/PHPProjectGen)
 
-### Objective
+***Objective***
 Create a package to generate php skeleton for package (composer) 
 
-### Usage:
+***Usage***
 After download run 
 ```php
 composer install
@@ -31,7 +31,7 @@ Configure your package (config.json)
 }
 ```
 
-### Execute 
+***Execute***
 ```php
 php generate.php
 ```
