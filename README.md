@@ -1,4 +1,5 @@
 # PHPProjectGen
+[![Build Status](https://travis-ci.org/elminson/PHPProjectGen.svg?branch=master)](https://travis-ci.org/elminson/PHPProjectGen)
 
 #### Objective
 Create a package to generate php skeleton for package (composer) 
