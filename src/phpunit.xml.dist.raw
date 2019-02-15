@@ -1,9 +1,21 @@
-<phpunit bootstrap="src/autoload.php">
-  <testsuites>
-    <testsuite name="{!projectname!}">
-      <file>tests/test{!projectname!}.php</file>
-      <directory>tests/*Test.php</directory>
-      <exclude></exclude>
-    </testsuite>
-  </testsuites>
+<?xml version="1.0"?>
+  <testsuites>	
+  <phpunit colors="true" bootstrap="../vendor/autoload.php">
+    <testsuite name="{!projectname!}">	    
+    <testsuites>
+      <file>tests/test{!projectname!}.php</file>	        
+      <testsuite name="{!projectname!}">
+      <directory>tests/*Test.php</directory>	            
+      <directory suffix=".php">./</directory>
+      <exclude></exclude>	        
+      </testsuite>
+    </testsuite>	    
+    </testsuites>
+  </testsuites>	    
+  <filter>
+</phpunit> 	        
+<whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
