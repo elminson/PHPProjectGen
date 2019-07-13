@@ -59,8 +59,8 @@ class PHPProjectGen
         $composer_data['description'] = $this->composer_config['description'];
         $composer_data['type'] = $this->composer_config['type'];
         if ($this->composer_config['phpunit']) {
-            $composer_data['require']['phpunit/phpunit'] = '^7.4@dev';
-            $composer_data['require-dev']['phpunit/phpunit'] = '^7.4@dev';
+            $composer_data['require']['phpunit/phpunit'] = $this->composer_config['phpunitversion'];
+            $composer_data['require-dev']['phpunit/phpunit'] = $this->composer_config['phpunitversion'];
         }
         $composer_data['license'] = $this->composer_config['license'];
         $composer_data['authors'][0]['name'] = $this->composer_config['developer'];
