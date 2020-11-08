@@ -37,6 +37,11 @@ After download run
 ```php
 composer install
 ```
+or via packagist
+```php
+composer create-project elminson/phpprojectgen
+```
+
 Configure your package (config.json)
 ```json 
 {
