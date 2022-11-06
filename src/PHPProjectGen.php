@@ -135,7 +135,7 @@ class PHPProjectGen
           ->addFromString("README.md", "#" . $this->composer_config['projectname']);
 
         if ($this->composer_config['phpunit']) {
-            $testFile = "tests/test" . $this->composer_config['projectname'] . ".php";
+            $testFile = "tests/" . $this->composer_config['projectname'] . "Test.php";
             $zipFile
               ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "tests/phpunit.xml.dist")
               ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", $testFile);

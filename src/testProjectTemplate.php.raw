@@ -11,7 +11,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 
-class test{!projectname!} extends TestCase
+class {!projectname!}Test extends TestCase
 {
 
     /**
