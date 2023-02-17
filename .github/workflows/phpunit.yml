@@ -1,0 +1,33 @@
+name: phpunit
+on:
+  push:
+  pull_request:
+  
+jobs:
+  test-repo:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        # https://github.com/marketplace/actions/setup-php-action#tada-php-support
+        php-versions:
+        - '7.3'
+        - '7.4'
+        - '8.0'
+        - '8.1'
+        - '8.2'    
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3       
+    
+    - name: Compose setup
+      run: |
+        composer validate
+        composer check-platform-reqs
+        # if a package requires php: ^7, then the option --ignore-platform-req=php+ would allow installing on PHP8
+        composer install --no-interaction --ignore-platform-req=php+
+        
+    - name: Test the code
+      run: |
+        ./vendor/bin/phpunit --testdox tests       
