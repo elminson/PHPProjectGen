@@ -38,7 +38,7 @@ jobs:
         
     - name: Test the generated project
       run: |
-        7z x NewProject.zip
-        cd NewProject.zip
+        7z x NewProject.zip -oNewProject
+        cd NewProject
         composer update
         ./vendor/bin/phpunit --testdox tests         
