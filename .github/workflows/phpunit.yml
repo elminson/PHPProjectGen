@@ -32,6 +32,10 @@ jobs:
       run: |
         ./vendor/bin/phpunit --testdox tests  
         
+    - name: Generate the project
+      run: |
+        php generate.php        
+        
     - name: Test the generated project
       run: |
         7z x NewProject.zip
