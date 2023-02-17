@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elminsondeoleobaez
- * Date: 10/4/18
- * Time: 10:39 AM
- */
-
-namespace Elminson\PHPProjectGen;
+namespace ricci69\PHPProjectGen;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -22,4 +15,3 @@ class testPHPProjectGenTest extends TestCase
         unlink("NewProject.zip");
     }
 }
-

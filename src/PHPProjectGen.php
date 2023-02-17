@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elminsondeoleobaez
- * Date: 10/3/18
- * Time: 6:00 PM
- */
-
-namespace Elminson\PHPProjectGen;
+namespace ricci69\PHPProjectGen;
 
 /** @scrutinizer ignore-type */
 

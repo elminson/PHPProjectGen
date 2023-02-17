@@ -1,6 +1,6 @@
 {
-  "name": "elminson/phpprojectgen",
-  "description": "Set all necessary components to create a skeleton project in php",
+  "name": "ricci69/phpprojectgen",
+  "description": "Set all necessary components to create a skeleton project in PHP (composer) with PHPunit test cases",
   "type": "project",
   "require": {
     "phpunit/phpunit": "dev-main",
@@ -12,23 +12,23 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Elminson De Oleo Baez",
-      "email": "edeoleo@gmail.com"
+      "name": "ricci69",
+      "email": "ricci69@protonmail.com"
     }
   ],
   "autoload": {
     "psr-0": {
-      "Elminson\\PHPProjectGen\\": "src/",
-      "Elminson\\PHPProjectGen\\Test\\": "tests/"
+      "ricci69\\PHPProjectGen\\": "src/",
+      "ricci69\\PHPProjectGen\\Test\\": "tests/"
     },
     "psr-4": {
-      "Elminson\\PHPProjectGen\\": "src/",
-      "Elminson\\PHPProjectGen\\Test\\": "tests/"
+      "ricci69\\PHPProjectGen\\": "src/",
+      "ricci69\\PHPProjectGen\\Test\\": "tests/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Elminson\\PHPProjectGen\\Test\\": "tests/"
+      "ricci69\\PHPProjectGen\\Test\\": "tests/"
     }
   },
   "minimum-stability": "dev"

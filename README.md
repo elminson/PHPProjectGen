@@ -1,65 +1,42 @@
 # PHPProjectGen
-<table class="framed light" border="">
-<tbody><tr>
-<td align="center"><a href="https://www.phpclasses.org/" title="PHP Classes" alt="PHP Classes"><img src="https://files.phpclasses.org/graphics/phpclasses/logo-small-phpclasses.svg" width="275" alt="PHP Classes" style="vertical-align: top"></a><br>
-<hr>
-<b><a href="https://www.phpclasses.org/package/10938-PHP-Generate-files-for-a-Composer-skeleton-project.html">PHP Project Structure Composer Generator</a><br>
-By <a href="https://www.phpclasses.org/browse/author/337051.html">ELMINSON DE OLEO</a></b><br>
-<a href="https://www.phpclasses.org/award/innovation/"><img src="https://www.phpclasses.org/award/innovation/nominee.gif" width="89" height="89" alt="PHP Programming Innovation award nominee" title="PHP Programming Innovation award nominee" border="0"></a><br><b><span style="font-size: large">October 2018<br>
-Nominee<br>
-<a href="https://www.phpclasses.org/vote.html">Vote</a></span></b></td>
-</tr>
-</tbody></table>
-<br>
+Set all necessary components to create a skeleton project in PHP (composer) with PHPunit test cases.
+Based on the excellent work of [[Elminson De Oleo Baez](https://www.phpclasses.org/package/3698-PHP-MySQL-database-access-wrapper.html)]
 
 
-Packagist <br>
-[![Packagist](https://img.shields.io/packagist/v/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen)
-[![Packagist](https://img.shields.io/packagist/l/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
-[![Packagist](https://img.shields.io/packagist/dm/elminson/PHPProjectGen.svg)](https://packagist.org/packages/elminson/PHPProjectGen) 
-
-Codacy<br>
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b2b0c7845281438bafdfce10445a7da5)](https://app.codacy.com/app/elminson/PHPProjectGen?utm_source=github.com&utm_medium=referral&utm_content=elminson/PHPProjectGen&utm_campaign=Badge_Grade_Dashboard)
-
-Scrutinizer <br>
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/build.png?b=master)](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/elminson/PHPProjectGen/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-
-Travis <br>
-[![Build Status](https://travis-ci.org/elminson/PHPProjectGen.svg?branch=master)](https://travis-ci.org/elminson/PHPProjectGen)
-
-***Objective***
-Create a package to generate php skeleton for package (composer) 
-
-***Usage***
-After download run 
+## Usage
+After the download run
 ```php
 composer install
 ```
-or via packagist
+or if you want to install it via packagist
 ```php
-composer create-project elminson/phpprojectgen
+composer create-project ricci69/phpprojectgen
 ```
 
 Configure your package (config.json)
-```json 
+```json
 {
-  "name": "Elminson",
+  "name": "Company",
   "projectname": "NewProject",
   "description": "Project description",
   "phpunit": true,
-  "developer": "Elminson De Oleo Baez",
-  "email": "edeoleo@gmail.com",
+  "phpunitversion": "~9",
+  "developer": "author",
+  "email": "author@email.com",
   "license": "MIT",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "type": "project"
 }
 ```
 
-***Execute***
-```php
+## Execute
+Just type
+```bash
 php generate.php
+```
+or navigate to
+```
+http://127.0.0.1/PHPProjectGen/generate.php
 ```
 this will generate a zip file (projectname.zip) with this structure and the correct namespace
 
@@ -69,8 +46,8 @@ tests/testNewProject.php
 composer.json
 README.md
 ```
-After unzip the file you have to run 
+After unzip the file you have to run
 ```php
 composer install
 ```
-and you will have your project up and running in 5 minutes or less.
+and you will have your project up and running in 30 seconds or less.

@@ -1,12 +1,12 @@
 {
-  "name": "Elminson",
+  "name": "Company",
   "projectname": "NewProject",
   "description": "Project description",
   "phpunit": true,
   "phpunitversion": "~9",
-  "developer": "Elminson De Oleo Baez",
-  "email": "edeoleo@gmail.com",
+  "developer": "author",
+  "email": "author@email.com",
   "license": "MIT",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "type": "project"
 }
