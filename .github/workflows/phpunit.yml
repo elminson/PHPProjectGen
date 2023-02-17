@@ -28,6 +28,13 @@ jobs:
         # if a package requires php: ^7, then the option --ignore-platform-req=php+ would allow installing on PHP8
         composer install --no-interaction --ignore-platform-req=php+
         
-    - name: Test the code
+    - name: Test the generation of the project
       run: |
-        ./vendor/bin/phpunit --testdox tests       
+        ./vendor/bin/phpunit --testdox tests  
+        
+    - name: Test the generated project
+      run: |
+        7z x NewProject.zip
+        cd NewProject.zip
+        composer update
+        ./vendor/bin/phpunit --testdox tests         
