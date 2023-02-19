@@ -125,7 +125,7 @@ class PHPProjectGen
           ->addFile(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php", $mainFile)
           ->addFile(__DIR__ . "/temp/composer.json", "composer.json")
           ->addFile(__DIR__ . "/temp/.gitignore", ".gitignore")
-          ->addFromString("README.md", "#" . $this->composer_config['projectname']);
+          ->addFromString("README.md", "#" . $this->composer_config['projectname'].PHP_EOL.$this->composer_config['description']);
 
         if ($this->composer_config['phpunit']) {
             $testFile = "tests/" . $this->composer_config['projectname'] . "Test.php";
