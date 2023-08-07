@@ -1,160 +1,140 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elminsondeoleobaez
- * Date: 10/3/18
- * Time: 6:00 PM
- */
 
 namespace Elminson\PHPProjectGen;
 
-/** @scrutinizer ignore-type */
-
-use Alchemy\Zippy\Zippy;
-
-/** @scrutinizer ignore-type */
-
-use PclZip;
+use PhpZip\ZipFile;
 
 class PHPProjectGen
 {
-    private $composer_config;
+	private $composerConfig;
 
-    /**
-     * PHPProjectGen constructor.
-     * @param $composer_config
-     */
-    public function __construct()
-    {
-        $this->getConfig();
-    }
+	public function __construct()
+	{
+		$this->loadConfig();
+	}
 
-    /**
-     *
-     */
-    public function GenerateProject()
-    {
-        $this->generateComposer();
-        $this->generateClass();
-        $this->generateTestCases();
-        $this->generatePHPUnitTestCases();
-        $this->generateZipFile();
-        $this->cleanData();
-    }
+	public function generateProject()
+	{
+		$this->generateComposer();
+		$this->generateClass();
+		$this->generateTestCases();
+		$this->generatePHPUnitTestCases();
+		$this->generateZipFile();
+		$this->cleanData();
+	}
 
-    private function getConfig()
-    {
-        $string = file_get_contents("config.json");
-        $this->composer_config = json_decode($string, true);
-    }
+	private function loadConfig()
+	{
+		$configFile = file_get_contents("config.json");
+		$this->composerConfig = json_decode($configFile, true);
+	}
 
-    /**
-     *
-     */
-    private function generateComposer()
-    {
+	private function generateComposer()
+	{
+		$composerData = [
+			'name' => strtolower($this->composerConfig['name'] . "/" . $this->composerConfig['projectname']),
+			'description' => $this->composerConfig['description'],
+			'type' => $this->composerConfig['type'],
+			'license' => $this->composerConfig['license'],
+			'authors' => [
+				[
+					'name' => $this->composerConfig['developer'],
+					'email' => $this->composerConfig['email'],
+				],
+			],
+			'autoload' => [
+				'psr-0' => [
+					$src = "{$this->composerConfig['name']}\\\\{$this->composerConfig['projectname']}\\\\",
+					$tests = "{$this->composerConfig['name']}\\\\{$this->composerConfig['projectname']}\\\\Test\\\\",
+				],
+				'psr-4' => [
+					$src => 'src/',
+					$tests => 'tests/',
+				],
+				'psr-4-dev' => [
+					$src => 'src/',
+					$tests => 'tests/',
+				],
+			],
+			'require' => [],
+			'require-dev' => [],
+			'minimum-stability' => $this->composerConfig['minimum-stability'],
+		];
 
-        $composer_data = [];
-        $composer_data['name'] = strtolower($this->composer_config['name'] . "/" . $this->composer_config['projectname']);
-        $composer_data['description'] = $this->composer_config['description'];
-        $composer_data['type'] = $this->composer_config['type'];
-        if ($this->composer_config['phpunit']) {
-            $composer_data['require']['phpunit/phpunit'] = $this->composer_config['phpunitversion'];
-            $composer_data['require-dev']['phpunit/phpunit'] = $this->composer_config['phpunitversion'];
-        }
-        $composer_data['license'] = $this->composer_config['license'];
-        $composer_data['authors'][0]['name'] = $this->composer_config['developer'];
-        $composer_data['authors'][0]['email'] = $this->composer_config['email'];
-        $src = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname'] . "\\\\";
-        $tests = $this->composer_config['name'] . "\\\\" . $this->composer_config['projectname'] . "\\\\Test\\\\";
-        $composer_data['autoload']['psr-0'] = [
-          $src => "src/",
-          $tests => "tests/"
-        ];
-        $composer_data['autoload']['psr-4'] = [
-          $src => "src/",
-          $tests => "tests/"
-        ];
-        $composer_data['autoload-dev']['psr-4'] = [
-          $src => "src/",
-          $tests => "tests/"
-        ];
-        $composer_data['minimum-stability'] = $this->composer_config['minimum-stability'];
-        $string = stripslashes(json_encode($composer_data, JSON_PRETTY_PRINT));
-        $this->writeFile('composer', $string, "", "json");
-    }
+		if ($this->composerConfig['phpunit']) {
+			$composerData['require']['phpunit/phpunit'] = $this->composerConfig['phpunitversion'];
+			$composerData['require-dev']['phpunit/phpunit'] = $this->composerConfig['phpunitversion'];
+		}
 
-    private function generateClass()
-    {
-        $string = file_get_contents("src/ProjectTemplate.php.raw");
-        $name = $this->composer_config['name'] . '\\' . $this->composer_config['projectname'];
-        $string = str_replace('{!namespace!}', $name, $string);
-        $string = str_replace('{!class!}', $this->composer_config['projectname'], $string);
-        $string = str_replace('{!email!}', $this->composer_config['email'], $string);
-        $string = str_replace('{!date!}', date('m/d/Y'), $string);
-        $string = str_replace('{!time!}', date('h:i A'), $string);
-        $this->writeFile($this->composer_config['projectname'], $string);
-    }
+		$composerJson = json_encode($composerData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+		$this->writeFile('composer', $composerJson, '', 'json');
+	}
 
-    private function generateTestCases()
-    {
-        $string = file_get_contents("src/testProjectTemplate.php.raw");
-        $name = $this->composer_config['name'] . '\\' . $this->composer_config['projectname'];
-        $string = str_replace('{!namespace!}', $name, $string);
-        $string = str_replace('{!projectname!}', $this->composer_config['projectname'], $string);
-        $string = str_replace('{!loweclass!}', strtolower($this->composer_config['projectname']), $string);
-        $this->writeFile($this->composer_config['projectname'], $string, 'test');
+	private function generateClass()
+	{
+		$template = file_get_contents("src/ProjectTemplate.php.raw");
+		$namespace = "{$this->composerConfig['name']}\\{$this->composerConfig['projectname']}";
+		$template = str_replace('{!namespace!}', $namespace, $template);
+		$template = str_replace('{!class!}', $this->composerConfig['projectname'], $template);
+		$template = str_replace('{!email!}', $this->composerConfig['email'], $template);
+		$template = str_replace('{!date!}', date('m/d/Y'), $template);
+		$template = str_replace('{!time!}', date('h:i A'), $template);
+		$this->writeFile($this->composerConfig['projectname'], $template);
+	}
 
-    }
+	private function generateTestCases()
+	{
+		$template = file_get_contents("src/testProjectTemplate.php.raw");
+		$namespace = "{$this->composerConfig['name']}\\{$this->composerConfig['projectname']}";
+		$template = str_replace('{!namespace!}', $namespace, $template);
+		$template = str_replace('{!projectname!}', $this->composerConfig['projectname'], $template);
+		$template = str_replace('{!loweclass!}', strtolower($this->composerConfig['projectname']), $template);
+		$this->writeFile($this->composerConfig['projectname'], $template, 'test');
+	}
 
-    private function generatePHPUnitTestCases()
-    {
-        $string = file_get_contents("src/phpunit.xml.dist.raw");
-        $string = str_replace('{!projectname!}', $this->composer_config['projectname'], $string);
-        $this->writeFile('phpunit.xml', $string, '', 'dist');
+	private function generatePHPUnitTestCases()
+	{
+		$template = file_get_contents("src/phpunit.xml.dist.raw");
+		$template = str_replace('{!projectname!}', $this->composerConfig['projectname'], $template);
+		$this->writeFile('phpunit.xml', $template, '', 'dist');
+	}
 
-    }
+	private function writeFile($name, $data, $prefix = '', $ext = 'php')
+	{
+		$filePath = __DIR__ . "/temp/{$prefix}{$name}.{$ext}";
+		file_put_contents($filePath, $data);
+	}
 
-    private function writeFile($name, $data, $prefix = "", $ext = "php")
-    {
-        $file = fopen('src/temp/' . $prefix . $name . '.' . $ext, 'w');
-        fwrite(/** @scrutinizer ignore-type */
-          $file, $data);
-        fclose(/** @scrutinizer ignore-type */
-          $file);
-    }
+	private function generateZipFile()
+	{
+		$zipFile = new ZipFile();
+		$mainFile = "src/{$this->composerConfig['projectname']}.php";
 
-    private function generateZipFile()
-    {
-        $zipFile = new \PhpZip\ZipFile();
-        $mainFile = "src/" . $this->composer_config['projectname'] . ".php";
-        $zipFile
-          ->addFile(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php", $mainFile)
-          ->addFile(__DIR__ . "/temp/composer.json", "composer.json")
-          ->addFile(__DIR__ . "/temp/.gitignore", ".gitignore")
-          ->addFromString("README.md", "#" . $this->composer_config['projectname']);
+		$zipFile
+			->addFile(__DIR__ . "/temp/{$this->composerConfig['projectname']}.php", $mainFile)
+			->addFile(__DIR__ . "/temp/composer.json", "composer.json")
+			->addFile(__DIR__ . "/temp/.gitignore", ".gitignore")
+			->addFromString("README.md", "#{$this->composerConfig['projectname']}");
 
-        if ($this->composer_config['phpunit']) {
-            $testFile = "tests/test" . $this->composer_config['projectname'] . ".php";
-            $zipFile
-              ->addFile(__DIR__ . "/temp/phpunit.xml.dist", "tests/phpunit.xml.dist")
-              ->addFile(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php", $testFile);
-        }
+		if ($this->composerConfig['phpunit']) {
+			$testFile = "tests/test{$this->composerConfig['projectname']}.php";
+			$zipFile
+				->addFile(__DIR__ . "/temp/phpunit.xml.dist", "tests/phpunit.xml.dist")
+				->addFile(__DIR__ . "/temp/test{$this->composerConfig['projectname']}.php", $testFile);
+		}
 
-        $zipFile
-          ->saveAsFile($this->composer_config['projectname'] . '.zip')
-          ->close();
+		$zipFile
+			->saveAsFile("{$this->composerConfig['projectname']}.zip")
+			->close();
+	}
 
-    }
-
-    private function cleanData()
-    {
-        unlink(__DIR__ . "/temp/" . $this->composer_config['projectname'] . ".php");
-        if ($this->composer_config['phpunit']) {
-            unlink(__DIR__ . "/temp/test" . $this->composer_config['projectname'] . ".php");
-            unlink(__DIR__ . "/temp/phpunit.xml.dist");
-        }
-        unlink(__DIR__ . "/temp/composer.json");
-    }
-
+	private function cleanData()
+	{
+		unlink(__DIR__ . "/temp/{$this->composerConfig['projectname']}.php");
+		if ($this->composerConfig['phpunit']) {
+			unlink(__DIR__ . "/temp/test{$this->composerConfig['projectname']}.php");
+			unlink(__DIR__ . "/temp/phpunit.xml.dist");
+		}
+		unlink(__DIR__ . "/temp/composer.json");
+	}
 }

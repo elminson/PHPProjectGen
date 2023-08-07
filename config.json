@@ -3,7 +3,7 @@
   "projectname": "NewProject",
   "description": "Project description",
   "phpunit": true,
-  "phpunitversion": "^7.4@dev",
+  "phpunitversion": "^9",
   "developer": "Elminson De Oleo Baez",
   "email": "edeoleo@gmail.com",
   "license": "MIT",
